@@ -1,4 +1,4 @@
-﻿using Syncfusion.Windows.Shared;
+using Syncfusion.Windows.Shared;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -12,6 +12,7 @@ namespace Pin_UnPin
         private bool allowPin;
         private bool showPin;
         private Visibility closeButtonState;
+        private bool isPinned;
 
         public string Header
         {
@@ -67,6 +68,19 @@ namespace Pin_UnPin
             { 
                 showPin = value; 
                 this.RaisePropertyChanged("ShowPin");
+            }
+        }  
+        
+        public bool IsPinned
+        {
+            get 
+            { 
+                return isPinned;
+            }
+            set
+            {
+                isPinned = value; 
+                this.RaisePropertyChanged("IsPinned");
             }
         }
 
