@@ -1,0 +1,66 @@
+﻿<Window x:Class="Templates.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:local="clr-namespace:Templates" 
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="TabControl - ContextMenu templates" Height="450" Width="500">
+    <Window.Resources>
+
+        <!--Custom data template for the TabItem ContextMenu-->
+        <DataTemplate x:Key="TabItemContextMenuItemTemplate"
+          DataType="syncfusion:TabItemExt">
+            <TextBlock FontFamily="Calibri"
+                   Foreground="Red"
+                   FontStyle="Oblique"
+                   Text="{Binding}"/>
+        </DataTemplate>
+    </Window.Resources>
+
+    <Window.DataContext>
+        <local:ViewModel></local:ViewModel>
+    </Window.DataContext>
+
+    <Grid>
+        <syncfusion:TabControlExt ItemsSource="{Binding TabItems}" 
+                                  x:Name="tabControlExt"
+                                  Margin="20">
+            <syncfusion:TabControlExt.ItemContainerStyle>
+                <Style TargetType="syncfusion:TabItemExt">
+                    <Setter Property="HeaderTemplate">
+                        <Setter.Value>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Header,Mode=TwoWay}" />
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+
+                    <!--Binding custom data template for the TabItem ContextMenu-->
+                    <Setter Property="TabItemContextMenuItemTemplate" Value="{StaticResource TabItemContextMenuItemTemplate}"/>
+                    <Setter Property="Content" 
+                            Value="{Binding Content}" />
+                </Style>
+            </syncfusion:TabControlExt.ItemContainerStyle>
+
+            <!--Custom UI for the TabList ContextMenu items-->
+            <syncfusion:TabControlExt.TabListContextMenuItemTemplate>
+                <DataTemplate>
+                    <TextBlock FontFamily="Calibri"
+                                       Foreground="Blue"
+                                       FontStyle="Oblique" FontSize="15"
+                                       Text="{Binding Header}"/>
+                </DataTemplate>
+            </syncfusion:TabControlExt.TabListContextMenuItemTemplate>
+
+            <!--Custom UI for edit header template-->
+            <syncfusion:TabControlExt.EditHeaderTemplate>
+                <DataTemplate>
+                    <TextBox Text="{Binding Header, Mode=TwoWay}" />
+                </DataTemplate>
+            </syncfusion:TabControlExt.EditHeaderTemplate>
+        </syncfusion:TabControlExt>
+    </Grid>
+</Window>
+    

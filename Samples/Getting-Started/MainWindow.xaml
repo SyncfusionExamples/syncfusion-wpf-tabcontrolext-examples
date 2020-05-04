@@ -1,0 +1,48 @@
+﻿<Window x:Class="Getting_Started.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Getting_Started"
+        WindowStartupLocation="CenterScreen"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d"
+        Title="TabControl - Getting Started" Height="450" Width="800">
+    <Grid>
+        <syncfusion:TabControlExt Margin="20" 
+                                  TabScrollButtonVisibility="Auto"
+                                  TabScrollStyle="Extended" 
+                                  Name="tabControlExt">
+            <syncfusion:TabItemExt Name="TabItemExt1" Header="tabItem1" >
+                <syncfusion:TabItemExt.Content>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">This is first tab item content</TextBlock>
+                </syncfusion:TabItemExt.Content>
+            </syncfusion:TabItemExt>
+            <syncfusion:TabItemExt Header="tabItem2" >
+                <syncfusion:TabItemExt.Content>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">This is second tab item content</TextBlock>
+                </syncfusion:TabItemExt.Content>
+            </syncfusion:TabItemExt>
+            <syncfusion:TabItemExt Header="tabItem3" >
+                <syncfusion:TabItemExt.Content>
+                    <TextBlock  HorizontalAlignment="Center" VerticalAlignment="Center">This is third tab item content</TextBlock>
+                </syncfusion:TabItemExt.Content>
+            </syncfusion:TabItemExt>
+            <syncfusion:TabItemExt Header="tabItem4" >
+                <syncfusion:TabItemExt.Content>
+                    <TextBlock  HorizontalAlignment="Center" VerticalAlignment="Center">This is fourth tab item content</TextBlock>
+                </syncfusion:TabItemExt.Content>
+            </syncfusion:TabItemExt>
+            <syncfusion:TabItemExt Header="tabItem5" >
+                <syncfusion:TabItemExt.Content>
+                    <TextBlock  HorizontalAlignment="Center" VerticalAlignment="Center">This is fifth tab item content</TextBlock>
+                </syncfusion:TabItemExt.Content>
+            </syncfusion:TabItemExt>
+            <syncfusion:TabItemExt Header="tabItem6" >
+                <syncfusion:TabItemExt.Content>
+                    <TextBlock  HorizontalAlignment="Center" VerticalAlignment="Center">This is sixth tab item content</TextBlock>
+                </syncfusion:TabItemExt.Content>
+            </syncfusion:TabItemExt>
+        </syncfusion:TabControlExt>
+    </Grid>
+</Window>
