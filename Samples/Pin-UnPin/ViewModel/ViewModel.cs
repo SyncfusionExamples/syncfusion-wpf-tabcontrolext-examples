@@ -1,4 +1,3 @@
-﻿
 using Syncfusion.Windows.Shared;
 using System.Collections.ObjectModel;
 using System.Windows;
@@ -40,6 +39,7 @@ namespace Pin_UnPin
                 AllowPin = true,
                 CanClose = false,
                 ShowPin = true,
+                IsPinned= false,
                 CloseButtonState = Visibility.Visible
             };
             TabItem tabItem2 = new TabItem()
@@ -55,6 +55,7 @@ namespace Pin_UnPin
                 AllowPin = true,
                 CanClose = false,
                 ShowPin = true,
+                IsPinned = true,
                 CloseButtonState = Visibility.Visible
             };
             TabItem tabItem3 = new TabItem()
@@ -69,6 +70,7 @@ namespace Pin_UnPin
                 AllowPin = true,
                 CanClose = true,
                 ShowPin = true,
+                IsPinned = true,
                 CloseButtonState = Visibility.Visible
             };
 
