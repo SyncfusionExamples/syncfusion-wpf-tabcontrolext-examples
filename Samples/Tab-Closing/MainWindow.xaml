@@ -1,4 +1,4 @@
-﻿<Window x:Class="Tab_Closing.MainWindow"
+<Window x:Class="Tab_Closing.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -62,10 +62,6 @@
                   VerticalAlignment="Stretch"
                   Margin="5">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
@@ -136,48 +132,7 @@
                     <syncfusion:CloseMode>Hide</syncfusion:CloseMode>
                     <syncfusion:CloseMode>Delete</syncfusion:CloseMode>
                 </ComboBox>
-
-                <TextBlock Margin="3" 
-                           Text ="Selected TabItem Foreground" 
-                           Grid.Row="5"
-                           Grid.Column="0"/>
-                <syncfusion:ColorPicker Brush="{Binding TabItemSelectedForeground, Mode=TwoWay}"               
-                          Grid.Row="5" 
-                          Grid.Column="1" 
-                          Margin="3"/>
-
-                <TextBlock Margin="3" 
-                           Text ="Selected TabItem Background" 
-                           Grid.Row="6"
-                           Grid.Column="0"/>
-                <syncfusion:ColorPicker Brush="{Binding TabItemSelectedBackground, Mode=TwoWay}"               
-                          Grid.Row="6" 
-                          Grid.Column="1" 
-                          Margin="3"/>
-
-                <TextBlock Margin="3" 
-                           Text ="SelectedItem FontWeight" 
-                           Grid.Row="7"
-                           Grid.Column="0"/>
-                <ComboBox SelectedItem="{Binding SelectedItemFontWeight, Mode=TwoWay}"               
-                          Grid.Row="7" 
-                          Grid.Column="1" 
-                          Margin="3">
-                    <FontWeight>Bold</FontWeight>
-                    <FontWeight>SemiBold</FontWeight>
-                </ComboBox>
-
-                <TextBlock Grid.Row="8"
-                           Grid.Column="0">
-                    <Run Text="Unload Previously SeletedItem"/><LineBreak/>
-                    <Run Text="Content"/>
-                </TextBlock>
-                <CheckBox IsChecked="{Binding IsDisableUnloadTabItemExtContent, Mode=TwoWay}"               
-                          Grid.Row="8" 
-                          Grid.Column="1" 
-                          Margin="3"/>
             </Grid>
         </GroupBox>
     </Grid>
 </Window>
-    
