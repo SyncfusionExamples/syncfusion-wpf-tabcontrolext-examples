@@ -8,65 +8,49 @@ namespace Pin_UnPin
 {
     public class ViewModel : NotificationObject
     {
-        private ObservableCollection<TabItem> tabItems;
-        public ObservableCollection<TabItem> TabItems
+        private ObservableCollection<TabItem_ViewModel> tabItems;
+        public ObservableCollection<TabItem_ViewModel> TabItems
         {
             get { return tabItems; }
             set
             {
                 tabItems = value;
-                this.RaisePropertyChanged("TabItems");
+                this.RaisePropertyChanged(nameof(TabItems));
             }
         }
 
         public ViewModel()
         {
-            tabItems = new ObservableCollection<TabItem>();
+            tabItems = new ObservableCollection<TabItem_ViewModel>();
             PopulateCollection();
         }
 
         public void PopulateCollection()
         {
-            TabItem tabItem1 = new TabItem()
+            TabItem_ViewModel tabItem1 = new TabItem_ViewModel()
             {
                 Header = "tabItem1",
-                Content = new TextBlock()
-                {
-                    Text = "This is the content of first tabitem.",
-                    HorizontalAlignment = HorizontalAlignment.Center,
-                    VerticalAlignment = VerticalAlignment.Center
-                },
+                Content = "This is the content of first tabitem.",
                 AllowPin = true,
                 CanClose = false,
                 ShowPin = true,
                 IsPinned= false,
                 CloseButtonState = Visibility.Visible
             };
-            TabItem tabItem2 = new TabItem()
+            TabItem_ViewModel tabItem2 = new TabItem_ViewModel()
             {
                 Header = "tabItem2",
-                Content = new TextBlock()
-                {
-                    Text = "This is the content of second tabitem.",
-                    HorizontalAlignment = HorizontalAlignment.Center,
-                    VerticalAlignment = VerticalAlignment.Center,
-                 
-                },
+                Content = "This is the content of second tabitem.",
                 AllowPin = true,
                 CanClose = false,
                 ShowPin = true,
                 IsPinned = true,
                 CloseButtonState = Visibility.Visible
             };
-            TabItem tabItem3 = new TabItem()
+            TabItem_ViewModel tabItem3 = new TabItem_ViewModel()
             {
                 Header = "tabItem3",
-                Content = new TextBlock()
-                {
-                    Text = "This is the content of third tabitem.",
-                    HorizontalAlignment = HorizontalAlignment.Center,
-                    VerticalAlignment = VerticalAlignment.Center
-                },
+                Content = "This is the content of third tabitem.",
                 AllowPin = true,
                 CanClose = true,
                 ShowPin = true,

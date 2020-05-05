@@ -13,7 +13,17 @@ namespace Themes
         private FlowDirection flowDirection;
         private ObservableCollection<string> themes = new ObservableCollection<string>();
         private DelegateCommand<object> selectionChangedCommand;
+        private ObservableCollection<object> tabItems;
 
+        public ObservableCollection<object> TabItems
+        {
+            get { return tabItems; }
+            set
+            {
+                tabItems = value;
+                this.RaisePropertyChanged(nameof(TabItems));
+            }
+        }
         public ICommand SelectionChangedCommand
         {
             get
@@ -24,14 +34,11 @@ namespace Themes
 
         public ObservableCollection<string> Themes
         {
-            get
-            {
-                return themes;
-            }
+            get { return themes; }
             set
             {
                 themes = value;
-                this.RaisePropertyChanged("Themes");
+                this.RaisePropertyChanged(nameof(Themes));
             }
         }
 
@@ -41,7 +48,7 @@ namespace Themes
             set
             {
                 flowDirection = value;
-                this.RaisePropertyChanged("FlowDirection");
+                this.RaisePropertyChanged(nameof(FlowDirection));
             }
         }
 
@@ -65,6 +72,8 @@ namespace Themes
 
         public ViewModel()
         {
+            TabItems = new ObservableCollection<object>();
+
             //Theme list  added in the collection
             Themes.Add("Blend");
             Themes.Add("Lime");

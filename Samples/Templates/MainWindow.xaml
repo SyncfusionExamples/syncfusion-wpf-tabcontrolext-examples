@@ -32,15 +32,22 @@
                     <Setter Property="HeaderTemplate">
                         <Setter.Value>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Header,Mode=TwoWay}" />
+                                <TextBlock Text="{Binding Header}"/>
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="ContentTemplate">
+                        <Setter.Value>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Content}" 
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Center"/>
                             </DataTemplate>
                         </Setter.Value>
                     </Setter>
 
                     <!--Binding custom data template for the TabItem ContextMenu-->
-                    <Setter Property="TabItemContextMenuItemTemplate" Value="{StaticResource TabItemContextMenuItemTemplate}"/>
-                    <Setter Property="Content" 
-                            Value="{Binding Content}" />
+                    <Setter Property="TabItemContextMenuItemTemplate" Value="{StaticResource TabItemContextMenuItemTemplate}"/>                    
                 </Style>
             </syncfusion:TabControlExt.ItemContainerStyle>
 
@@ -53,13 +60,6 @@
                                        Text="{Binding Header}"/>
                 </DataTemplate>
             </syncfusion:TabControlExt.TabListContextMenuItemTemplate>
-
-            <!--Custom UI for edit header template-->
-            <syncfusion:TabControlExt.EditHeaderTemplate>
-                <DataTemplate>
-                    <TextBox Text="{Binding Header, Mode=TwoWay}" />
-                </DataTemplate>
-            </syncfusion:TabControlExt.EditHeaderTemplate>
         </syncfusion:TabControlExt>
     </Grid>
 </Window>

@@ -8,11 +8,36 @@
         xmlns:local="clr-namespace:Themes"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         Title="TabControl - Appearance" Height="450" Width="800">
-    <Window.DataContext>
-        <local:ViewModel></local:ViewModel>
-    </Window.DataContext>
+    <Window.Resources>
+        <local:ViewModel x:Key="viewModel">
+            <local:ViewModel.TabItems>
+                <syncfusion:TabItemExt Header="tabItem1" >
+                    <syncfusion:TabItemExt.Content>
+                        <TextBlock Text="This is first tab item content"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                    </syncfusion:TabItemExt.Content>
+                </syncfusion:TabItemExt>
+                <syncfusion:TabItemExt Header="tabItem2" >
+                    <syncfusion:TabItemExt.Content>
+                        <TextBlock Text="This is second tab item content"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                    </syncfusion:TabItemExt.Content>
+                </syncfusion:TabItemExt>
+                <syncfusion:TabItemExt Header="tabItem3">
+                    <syncfusion:TabItemExt.Content>
+                        <TextBlock Text="This is third tab item content"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                    </syncfusion:TabItemExt.Content>
+                </syncfusion:TabItemExt>
+            </local:ViewModel.TabItems>
+        </local:ViewModel>
+    </Window.Resources>
 
-    <Grid>
+    <!--Setting ViewModel as DataContext for the Grid-->
+    <Grid DataContext="{StaticResource viewModel}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -20,30 +45,10 @@
 
         <Border Grid.Column="0">
             <Grid>
-                <syncfusion:TabControlExt FlowDirection="{Binding FlowDirection}"
+                <syncfusion:TabControlExt ItemsSource="{Binding TabItems}"
+                                          FlowDirection="{Binding FlowDirection}"
                                           x:Name="colorPicker"
-                                          Margin="20"  >
-                    <syncfusion:TabItemExt Header="tabItem1" >
-                        <syncfusion:TabItemExt.Content>
-                            <TextBlock Text="This is first tab item content"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"/>
-                        </syncfusion:TabItemExt.Content>
-                    </syncfusion:TabItemExt>
-                    <syncfusion:TabItemExt Header="tabItem2" >
-                        <syncfusion:TabItemExt.Content>
-                            <TextBlock Text="This is second tab item content"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"/>
-                        </syncfusion:TabItemExt.Content>
-                    </syncfusion:TabItemExt>
-                    <syncfusion:TabItemExt Header="tabItem3">
-                        <syncfusion:TabItemExt.Content>
-                            <TextBlock Text="This is third tab item content"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"/>
-                        </syncfusion:TabItemExt.Content>
-                    </syncfusion:TabItemExt>
+                                          Margin="20"  >                    
                 </syncfusion:TabControlExt>
 
             </Grid>

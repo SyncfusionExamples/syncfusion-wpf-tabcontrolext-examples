@@ -8,51 +8,41 @@ namespace Tabcontrol_binding
 {
     public class ViewModel : NotificationObject
     {
-        private ObservableCollection<TabItem> tabItems;
-        public ObservableCollection<TabItem> TabItems
+        private ObservableCollection<TabItem_ViewModel> tabItems;
+        public ObservableCollection<TabItem_ViewModel> TabItems
         {
             get { return tabItems; }
             set
             {
                 tabItems = value;
-                this.RaisePropertyChanged("TabItems");
+                this.RaisePropertyChanged(nameof(TabItems));
             }
         }        
         
         public ViewModel()
         {
-            tabItems = new ObservableCollection<TabItem>();
+            tabItems = new ObservableCollection<TabItem_ViewModel>();
             PopulateCollection();
         }
 
         public void PopulateCollection()
         {
-            TabItem tabItem1 = new TabItem() 
+            TabItem_ViewModel tabItem1 = new TabItem_ViewModel() 
             { 
                 Header="tabItem1", 
-                Content= new TextBlock() {
-                    Text = "This is the content of first tabitem.",
-                    HorizontalAlignment = HorizontalAlignment.Center, 
-                    VerticalAlignment= VerticalAlignment.Center     
-                },
-                Image="Images/sync.png" };
-            TabItem tabItem2 = new TabItem()
+                Content= "This is the content of first tabitem.",
+                Image = "Images/sync.png"
+            };
+            TabItem_ViewModel tabItem2 = new TabItem_ViewModel()
             { 
-                Header="tabItem2", Content= new TextBlock() {
-                    Text = "This is the content of second tabitem.",
-                    HorizontalAlignment = HorizontalAlignment.Center,
-                    VerticalAlignment = VerticalAlignment.Center
-                },
-                Image="Images/tabimage.png" };
-            TabItem tabItem3 = new TabItem()
+                Header="tabItem2",
+                Content="This is the content of second tabitem.",
+                Image = "Images/tabimage.png"
+            };
+            TabItem_ViewModel tabItem3 = new TabItem_ViewModel()
             {
                 Header = "tabItem3",
-                Content = new TextBlock()
-                {
-                    Text = "This is the content of third tabitem.",
-                    HorizontalAlignment = HorizontalAlignment.Center,
-                    VerticalAlignment = VerticalAlignment.Center
-                },
+                Content = "This is the content of third tabitem.",
                 Image = "Images/sync.png"
             };
 

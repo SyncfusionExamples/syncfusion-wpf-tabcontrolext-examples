@@ -1,13 +1,12 @@
 ﻿using Syncfusion.Windows.Shared;
 using Syncfusion.Windows.Tools.Controls;
-using System.Windows.Controls;
 
-namespace Tab_Header
+namespace Tabcontrol_binding
 {
-    public class TabItem : NotificationObject
+    public class TabItem_ViewModel : NotificationObject
     {
         private string header;
-        private TextBlock content;
+        private string content;
         private string image;
         private ImageAlignment imageAlignment = ImageAlignment.LeftOfText;
 
@@ -17,17 +16,17 @@ namespace Tab_Header
             set
             {
                 header = value;
-                this.RaisePropertyChanged("Header");
+                this.RaisePropertyChanged(nameof(Header));
             }
         }
 
-        public TextBlock Content
+        public string Content
         {
             get { return content; }
             set
             {
                 content = value;
-                this.RaisePropertyChanged("Content");
+                this.RaisePropertyChanged(nameof(Content));
             }
         }
 
@@ -37,7 +36,7 @@ namespace Tab_Header
             set
             {
                 image = value;
-                this.RaisePropertyChanged("Image");
+                this.RaisePropertyChanged(nameof(Image));
             }
         }
 
@@ -48,11 +47,11 @@ namespace Tab_Header
             set
             {
                 imageAlignment = value;
-                this.RaisePropertyChanged("ImageAlignment");
+                this.RaisePropertyChanged(nameof(ImageAlignment));
             }
         }
 
-        public TabItem()
+        public TabItem_ViewModel()
         {
 
         }

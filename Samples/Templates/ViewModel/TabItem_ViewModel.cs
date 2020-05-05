@@ -1,17 +1,12 @@
 ﻿using Syncfusion.Windows.Shared;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 
 namespace Templates
 {
-    public class Model : NotificationObject
+    public class TabItem_ViewModel : NotificationObject
     {
         private string header;
-        private TextBlock content;
+        private string content;
 
         public string Header
         {
@@ -19,21 +14,21 @@ namespace Templates
             set
             {
                 header = value;
-                this.RaisePropertyChanged("Header");
+                this.RaisePropertyChanged(nameof(Header));
             }
         }
 
-        public TextBlock Content
+        public string Content
         {
             get { return content; }
             set
             {
                 content = value;
-                this.RaisePropertyChanged("Content");
+                this.RaisePropertyChanged(nameof(Content));
             }
         }
 
-        public Model()
+        public TabItem_ViewModel()
         {
 
         }

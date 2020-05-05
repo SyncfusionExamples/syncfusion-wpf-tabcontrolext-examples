@@ -1,5 +1,4 @@
-﻿
-using Syncfusion.Windows.Shared;
+﻿using Syncfusion.Windows.Shared;
 using Syncfusion.Windows.Tools.Controls;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,7 +21,7 @@ namespace ScrollButton
             set
             {
                 tabScrollButtonVisibility = value;
-                this.RaisePropertyChanged("TabScrollButtonVisibility");
+                this.RaisePropertyChanged(nameof(TabScrollButtonVisibility));
             }
         }
         
@@ -32,7 +31,7 @@ namespace ScrollButton
             set
             {
                 rotateTextWhenVertical = value;
-                this.RaisePropertyChanged("RotateTextWhenVertical");
+                this.RaisePropertyChanged(nameof(RotateTextWhenVertical));
             }
         }
                 
@@ -42,7 +41,7 @@ namespace ScrollButton
             set
             {
                 tabStripPlacement = value;
-                this.RaisePropertyChanged("TabStripPlacement");
+                this.RaisePropertyChanged(nameof(TabStripPlacement));
             }
         }
 
@@ -52,12 +51,13 @@ namespace ScrollButton
             set
             {
                 tabScrollStyle = value;
-                this.RaisePropertyChanged("TabScrollStyle");
+                this.RaisePropertyChanged(nameof(TabScrollStyle));
             }
         }
 
         public ViewModel()
         {
+
         }
     }
 }

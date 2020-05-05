@@ -4,13 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
-        xmlns:local="clr-namespace:NewButton" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:local="clr-namespace:NewButton"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         Title="Data Binding" Height="450" Width="900">
 
     <Window.DataContext>
         <local:ViewModel />
     </Window.DataContext>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -19,7 +21,7 @@
 
         <Border Grid.Column="0">
             <Grid>
-                <syncfusion:TabControlExt  ItemsSource="{Binding Path=TabItems}"
+                <syncfusion:TabControlExt  ItemsSource="{Binding TabItems}"
                                            NewButtonBackground="{Binding NewButtonBackground}"
                                            IsNewButtonClosedonNoChild="{Binding IsNewButtonClosedonNoChild}"
                                            IsNewButtonEnabled="{Binding IsNewButtonEnabled}"
@@ -27,15 +29,15 @@
                                            Margin="20"
                                            Name="tabControlExt">
                     
-
+                    <!--Custom UI for the NewButton -->
                     <syncfusion:TabControlExt.NewButtonTemplate>
                         <ControlTemplate>
                             <Button Background="{Binding NewButtonBackground}" 
                                     Content=" + ">
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="Click">
-                                        <i:InvokeCommandAction Command="{Binding NewButtonClickCommand}" 
-                                                   CommandParameter="{Binding ElementName=tabControlExt}"/>
+                                        <i:InvokeCommandAction Command="{Binding NewButtonClickCommand}"
+                                                               CommandParameter="{Binding ElementName=tabControlExt}"/>
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </Button>
@@ -52,17 +54,22 @@
                                     </DataTemplate>
                                 </Setter.Value>
                             </Setter>
-                            <Setter Property="Content" 
-                                    Value="{Binding Content}" />
+                            <Setter Property="ContentTemplate">
+                                <Setter.Value>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Content}"
+                                                   HorizontalAlignment="Center"
+                                                   VerticalAlignment="Center" />
+                                    </DataTemplate>
+                                </Setter.Value>
+                            </Setter>
                         </Style>
                     </syncfusion:TabControlExt.ItemContainerStyle>
 
                     <!--Custom UI for edit header template-->
                     <syncfusion:TabControlExt.EditHeaderTemplate>
                         <DataTemplate>
-                            <TextBox Text="{Binding Header, Mode=TwoWay}"
-                              Background="Red" 
-                              Foreground="White" />
+                            <TextBox Text="{Binding Header, Mode=TwoWay}" />
                         </DataTemplate>
                     </syncfusion:TabControlExt.EditHeaderTemplate>
                 </syncfusion:TabControlExt>

@@ -14,7 +14,7 @@ namespace NewButton
         private Brush newButtonBackground = Brushes.Red;
         private bool isNewButtonClosedonNoChild=true;
         private bool isNewButtonEnabled = true;
-        private ObservableCollection<Model> tabItems;
+        private ObservableCollection<TabItem_ViewModel> tabItems;
         private DelegateCommand<object> newButtonClickCommand;
 
         public ICommand NewButtonClickCommand
@@ -30,7 +30,7 @@ namespace NewButton
             set
             {
                 newButtonBackground = value;
-                this.RaisePropertyChanged("NewButtonBackground");
+                this.RaisePropertyChanged(nameof(NewButtonBackground));
             }
         }
         
@@ -40,7 +40,7 @@ namespace NewButton
             set
             {
                 newButtonAlignment = value;
-                this.RaisePropertyChanged("NewButtonAlignment");
+                this.RaisePropertyChanged(nameof(NewButtonAlignment));
             }
         }
         public bool IsNewButtonEnabled
@@ -49,7 +49,7 @@ namespace NewButton
             set
             {
                 isNewButtonEnabled = value;
-                this.RaisePropertyChanged("IsNewButtonEnabled");
+                this.RaisePropertyChanged(nameof(IsNewButtonEnabled));
             }
         }
         public bool IsNewButtonClosedonNoChild
@@ -58,57 +58,42 @@ namespace NewButton
             set
             {
                 isNewButtonClosedonNoChild = value;
-                this.RaisePropertyChanged("IsNewButtonClosedonNoChild");
+                this.RaisePropertyChanged(nameof(IsNewButtonClosedonNoChild));
             }
         }
         
-        public ObservableCollection<Model> TabItems
+        public ObservableCollection<TabItem_ViewModel> TabItems
         {
             get { return tabItems; }
             set
             {
                 tabItems = value;
-                this.RaisePropertyChanged("TabItems");
+                this.RaisePropertyChanged(nameof(TabItems));
             }
         }
         public void NewButtonClicked(object parameter)
         {
             TabControlExt tabControl = parameter as TabControlExt;
             int count = tabControl.Items.Count + 1;
-            Model new_model1 = new Model()
+            TabItem_ViewModel new_model1 = new TabItem_ViewModel()
             {
                 Header = "tabItem" + count,
-                Content = new TextBlock()
-                {
-                    Text = "This is the content of "+ count + " tabitem.",
-                    HorizontalAlignment = HorizontalAlignment.Center,
-                    VerticalAlignment = VerticalAlignment.Center
-                }
+                Content = "This is the content of "+ count + " tabitem."
             };
             tabItems.Add(new_model1);
         }        
 
         public void PopulateCollection()
         {
-            Model model1 = new Model()
+            TabItem_ViewModel model1 = new TabItem_ViewModel()
             {
                 Header = "tabItem1",
-                Content = new TextBlock()
-                {
-                    Text = "This is the content of 1 tabitem.",
-                    HorizontalAlignment = HorizontalAlignment.Center,
-                    VerticalAlignment = VerticalAlignment.Center
-                }
+                Content = "This is the content of 1 tabitem."
             };
-            Model model2 = new Model()
+            TabItem_ViewModel model2 = new TabItem_ViewModel()
             {
                 Header = "tabItem2",
-                Content = new TextBlock()
-                {
-                    Text = "This is the content of 2 tabitem.",
-                    HorizontalAlignment = HorizontalAlignment.Center,
-                    VerticalAlignment = VerticalAlignment.Center
-                }
+                Content = "This is the content of 2 tabitem."
             };
 
             //Adding tab item details to the collection
@@ -117,7 +102,7 @@ namespace NewButton
         }
         public ViewModel()
         {
-            tabItems = new ObservableCollection<Model>();
+            tabItems = new ObservableCollection<TabItem_ViewModel>();
             PopulateCollection();
             newButtonClickCommand = new DelegateCommand<object>(NewButtonClicked);
         }

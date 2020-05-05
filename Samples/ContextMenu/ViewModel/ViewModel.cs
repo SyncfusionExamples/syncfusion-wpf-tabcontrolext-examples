@@ -16,7 +16,7 @@ namespace ContextMenu
             set
             {
                 defaultContextMenuItemVisibility = value;
-                this.RaisePropertyChanged("DefaultContextMenuItemVisibility");
+                this.RaisePropertyChanged(nameof(DefaultContextMenuItemVisibility));
             }
         }
 
@@ -26,7 +26,7 @@ namespace ContextMenu
             set
             {
                 showTabItemContextMenu = value;
-                this.RaisePropertyChanged("ShowTabItemContextMenu");
+                this.RaisePropertyChanged(nameof(ShowTabItemContextMenu));
             }
         }
 
@@ -36,7 +36,7 @@ namespace ContextMenu
             set
             {
                 showTabListContextMenu = value;
-                this.RaisePropertyChanged("ShowTabListContextMenu");
+                this.RaisePropertyChanged(nameof(ShowTabListContextMenu));
             }
         } 
         
@@ -46,7 +46,7 @@ namespace ContextMenu
             set
             {
                 isCustomTabItemContextMenuEnabled = value;
-                this.RaisePropertyChanged("IsCustomTabItemContextMenuEnabled");
+                this.RaisePropertyChanged(nameof(IsCustomTabItemContextMenuEnabled));
             }
         }
 

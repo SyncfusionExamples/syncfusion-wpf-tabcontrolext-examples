@@ -1,5 +1,6 @@
 ﻿using Syncfusion.Windows.Shared;
 using Syncfusion.Windows.Tools.Controls;
+using System.Collections.ObjectModel;
 using System.Windows.Media;
 
 namespace ArranageTabs
@@ -9,6 +10,20 @@ namespace ArranageTabs
         private bool allowDragDrop = true;
         private Brush dragMarkerColor= Brushes.Red;
         private TabItemLayoutType tabItemLayout= TabItemLayoutType.MultiLine;
+        private ObservableCollection<object> tabItems;
+
+        public ObservableCollection<object> TabItems
+        {
+            get
+            {
+                return tabItems;
+            }
+            set
+            {
+                tabItems = value;
+                this.RaisePropertyChanged(nameof(TabItems));
+            }
+        }
 
         public bool AllowDragDrop
         {
@@ -16,7 +31,7 @@ namespace ArranageTabs
             set
             {
                 allowDragDrop = value;
-                this.RaisePropertyChanged("AllowDragDrop");
+                this.RaisePropertyChanged(nameof(AllowDragDrop));
             }
         }
         public TabItemLayoutType TabItemLayout
@@ -25,7 +40,7 @@ namespace ArranageTabs
             set
             {
                 tabItemLayout = value;
-                this.RaisePropertyChanged("TabItemLayout");
+                this.RaisePropertyChanged(nameof(TabItemLayout));
             }
         }
 
@@ -35,8 +50,13 @@ namespace ArranageTabs
             set
             {
                 dragMarkerColor = value;
-                this.RaisePropertyChanged("DragMarkerColor");
+                this.RaisePropertyChanged(nameof(DragMarkerColor));
             }
-        }        
+        }     
+        
+        public ViewModel()
+        {
+            TabItems = new ObservableCollection<object>();
+        }
     }
 }

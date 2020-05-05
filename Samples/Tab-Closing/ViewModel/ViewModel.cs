@@ -1,5 +1,4 @@
-﻿
-using Syncfusion.Windows.Shared;
+﻿using Syncfusion.Windows.Shared;
 using Syncfusion.Windows.Tools.Controls;
 using System.Collections.ObjectModel;
 using System.Windows;
@@ -11,18 +10,18 @@ namespace Tab_Closing
 {
     public class ViewModel : NotificationObject
     {
-        private ObservableCollection<TabItem> tabItems;
+        private ObservableCollection<TabItem_ViewModel> tabItems;
         private CloseMode closeMode= CloseMode.Hide;
         private CloseButtonType closeButtonType= CloseButtonType.Both;
         private bool closeTabOnMiddleClick;
 
-        public ObservableCollection<TabItem> TabItems
+        public ObservableCollection<TabItem_ViewModel> TabItems
         {
             get { return tabItems; }
             set
             {
                 tabItems = value;
-                this.RaisePropertyChanged("TabItems");
+                this.RaisePropertyChanged(nameof(TabItems));
             }
         }
         
@@ -32,7 +31,7 @@ namespace Tab_Closing
             set
             {
                 closeTabOnMiddleClick = value;
-                this.RaisePropertyChanged("CloseTabOnMiddleClick");
+                this.RaisePropertyChanged(nameof(CloseTabOnMiddleClick));
             }
         }
 
@@ -42,7 +41,7 @@ namespace Tab_Closing
             set
             {
                 closeMode = value;
-                this.RaisePropertyChanged("CloseMode");
+                this.RaisePropertyChanged(nameof(CloseMode));
             }
         }
         
@@ -52,52 +51,36 @@ namespace Tab_Closing
             set
             {
                 closeButtonType = value;
-                this.RaisePropertyChanged("CloseButtonType");
+                this.RaisePropertyChanged(nameof(CloseButtonType));
             }
         }
 
         public ViewModel()
         {
-            tabItems = new ObservableCollection<TabItem>();
+            tabItems = new ObservableCollection<TabItem_ViewModel>();
             PopulateCollection();
         }
 
         public void PopulateCollection()
         {
-            TabItem tabItem1 = new TabItem()
+            TabItem_ViewModel tabItem1 = new TabItem_ViewModel()
             {
                 Header = "tabItem1",
-                Content = new TextBlock()
-                {
-                    Text = "This is the content of first tabitem.",
-                    HorizontalAlignment = HorizontalAlignment.Center,
-                    VerticalAlignment = VerticalAlignment.Center
-                },
+                Content = "This is the content of first tabitem.",
                 CanClose = true,
                 CloseButtonState = Visibility.Visible
             };
-            TabItem tabItem2 = new TabItem()
+            TabItem_ViewModel tabItem2 = new TabItem_ViewModel()
             {
                 Header = "tabItem2",
-                Content = new TextBlock()
-                {
-                    Text = "This is the content of second tabitem.",
-                    HorizontalAlignment = HorizontalAlignment.Center,
-                    VerticalAlignment = VerticalAlignment.Center,
-
-                },
+                Content = "This is the content of second tabitem.",
                 CanClose = false,
                 CloseButtonState = Visibility.Visible
             };
-            TabItem tabItem3 = new TabItem()
+            TabItem_ViewModel tabItem3 = new TabItem_ViewModel()
             {
                 Header = "tabItem3",
-                Content = new TextBlock()
-                {
-                    Text = "This is the content of third tabitem.",
-                    HorizontalAlignment = HorizontalAlignment.Center,
-                    VerticalAlignment = VerticalAlignment.Center
-                },
+                Content = "This is the content of third tabitem.",
                 CanClose = true,
                 CloseButtonState = Visibility.Visible
             };

@@ -35,22 +35,19 @@
                                     </DataTemplate>
                                 </Setter.Value>
                             </Setter>
-                            <Setter Property="Content" Value="{Binding Content}" />
+                            <Setter Property="ContentTemplate">
+                                <Setter.Value>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Content}"
+                                                   VerticalAlignment="Center" 
+                                                   HorizontalAlignment="Center" />
+                                    </DataTemplate>
+                                </Setter.Value>
+                            </Setter>
                             <Setter Property="CanClose" Value="{Binding CanClose, Mode=TwoWay}"/>
                             <Setter Property="CloseButtonState" Value="{Binding CloseButtonState, Mode=TwoWay}"/>
                         </Style>
                     </syncfusion:TabControlExt.ItemContainerStyle>
-                    <syncfusion:TabControlExt.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Header}"/>
-                        </DataTemplate>
-                    </syncfusion:TabControlExt.ItemTemplate>
-                    <!--Custom UI for edit header template-->
-                    <syncfusion:TabControlExt.EditHeaderTemplate>
-                        <DataTemplate>
-                            <TextBox Text="{Binding Header, Mode=TwoWay}"/>
-                        </DataTemplate>
-                    </syncfusion:TabControlExt.EditHeaderTemplate>
                 </syncfusion:TabControlExt>
             </Grid>
         </Border>

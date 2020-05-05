@@ -7,54 +7,39 @@ namespace Templates
 {
     public class ViewModel : NotificationObject
     {
-        private ObservableCollection<Model> tabItems;
-        public ObservableCollection<Model> TabItems
+        private ObservableCollection<TabItem_ViewModel> tabItems;
+        public ObservableCollection<TabItem_ViewModel> TabItems
         {
             get { return tabItems; }
             set
             {
                 tabItems = value;
-                this.RaisePropertyChanged("TabItems");
+                this.RaisePropertyChanged(nameof(TabItems));
             }
         }
 
         public ViewModel()
         {
-            tabItems = new ObservableCollection<Model>();
+            tabItems = new ObservableCollection<TabItem_ViewModel>();
             PopulateCollection();
         }
 
         public void PopulateCollection()
         {
-            Model model1 = new Model()
+            TabItem_ViewModel model1 = new TabItem_ViewModel()
             {
                 Header = "tabItem1",
-                Content = new TextBlock()
-                {
-                    Text = "This is the content of first tabitem.",
-                    HorizontalAlignment = HorizontalAlignment.Center,
-                    VerticalAlignment = VerticalAlignment.Center
-                }
+                Content = "This is the content of first tabitem."
             };
-            Model model2 = new Model()
+            TabItem_ViewModel model2 = new TabItem_ViewModel()
             {
                 Header = "tabItem2",
-                Content = new TextBlock()
-                {
-                    Text = "This is the content of second tabitem.",
-                    HorizontalAlignment = HorizontalAlignment.Center,
-                    VerticalAlignment = VerticalAlignment.Center,
-                }
+                Content = "This is the content of second tabitem."
             };
-            Model model3 = new Model()
+            TabItem_ViewModel model3 = new TabItem_ViewModel()
             {
                 Header = "tabItem3",
-                Content = new TextBlock()
-                {
-                    Text = "This is the content of third tabitem.",
-                    HorizontalAlignment = HorizontalAlignment.Center,
-                    VerticalAlignment = VerticalAlignment.Center
-                }
+                Content = "This is the content of third tabitem."
             };
 
             //Adding tab item details to the collection

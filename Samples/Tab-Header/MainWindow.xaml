@@ -35,7 +35,15 @@
                                     </DataTemplate>
                                 </Setter.Value>
                             </Setter>
-                            <Setter Property="Content" Value="{Binding Content}" />
+                            <Setter Property="ContentTemplate">
+                                <Setter.Value>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Content}"
+                                                   VerticalAlignment="Center" 
+                                                   HorizontalAlignment="Center" />
+                                    </DataTemplate>
+                                </Setter.Value>
+                            </Setter>
                             <Setter Property="Image" Value="{Binding Image}" />
                             <Setter Property="ImageHeight" Value="21" />
                             <Setter Property="ImageWidth" Value="21" />

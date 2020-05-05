@@ -1,14 +1,11 @@
-﻿
+﻿using System.Windows;
 using Syncfusion.Windows.Shared;
-using System.Windows;
-using System.Windows.Controls;
-
 namespace Tab_Closing
 {
-    public class TabItem : NotificationObject
+   public class TabItem_ViewModel : NotificationObject
     {
         private string header;
-        private TextBlock content;
+        private string content;
         private bool canClose;
         private Visibility closeButtonState;
 
@@ -18,45 +15,40 @@ namespace Tab_Closing
             set
             {
                 header = value;
-                this.RaisePropertyChanged("Header");
+                this.RaisePropertyChanged(nameof(Header));
             }
         }
 
-        public TextBlock Content
+        public string Content
         {
             get { return content; }
             set
             {
                 content = value;
-                this.RaisePropertyChanged("Content");
+                this.RaisePropertyChanged(nameof(Content));
             }
         }
         public bool CanClose
         {
-            get
-            {
-                return canClose;
-            }
+            get { return canClose; }
             set
             {
-                canClose = value; this.RaisePropertyChanged("CanClose");
+                canClose = value;
+                this.RaisePropertyChanged(nameof(CanClose));
             }
         }
 
         public Visibility CloseButtonState
         {
-            get
-            {
-                return closeButtonState;
-            }
+            get { return closeButtonState; }
             set
             {
                 closeButtonState = value;
-                this.RaisePropertyChanged("CloseButtonState");
+                this.RaisePropertyChanged(nameof(CloseButtonState));
             }
         }
 
-        public TabItem()
+        public TabItem_ViewModel()
         {
 
         }

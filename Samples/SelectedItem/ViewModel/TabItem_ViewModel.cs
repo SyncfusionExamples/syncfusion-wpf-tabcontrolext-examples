@@ -1,17 +1,16 @@
-﻿using Syncfusion.Windows.Shared;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Controls;
+using Syncfusion.Windows.Shared;
 
 namespace SelectedItem
 {
-    public class TabItem : NotificationObject
+    public class TabItem_ViewModel : NotificationObject
     {
         private string header;
-        private TextBlock content;
+        private string content;
 
         public string Header
         {
@@ -19,20 +18,20 @@ namespace SelectedItem
             set
             {
                 header = value;
-                this.RaisePropertyChanged("Header");
+                this.RaisePropertyChanged(nameof(Header));
             }
         }
 
-        public TextBlock Content
+        public string Content
         {
             get { return content; }
             set
             {
                 content = value;
-                this.RaisePropertyChanged("Content");
+                this.RaisePropertyChanged(nameof(Content));
             }
         }
-        public TabItem()
+        public TabItem_ViewModel()
         {
 
         }

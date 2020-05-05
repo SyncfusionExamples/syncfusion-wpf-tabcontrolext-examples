@@ -7,11 +7,26 @@
         xmlns:local="clr-namespace:ArranageTabs"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         Title="TabControl - Tab switching" Height="450" Width="800">
-    <Window.DataContext>
-        <local:ViewModel/>
-    </Window.DataContext>
+    
+    <Window.Resources>
+        <local:ViewModel x:Key="viewModel">
+            <local:ViewModel.TabItems>
+                <syncfusion:TabItemExt Header="tabItem1" Content="This is the first tab item content"/>
+                <syncfusion:TabItemExt Header="tabItem2" Content="This is the second tab item content"/>
+                <syncfusion:TabItemExt Header="tabItem3" Content="This is the third tab item content"/>
+                <syncfusion:TabItemExt Header="tabItem4" Content="This is the fourth tab item content"/>
+                <syncfusion:TabItemExt Header="tabItem5" Content="This is the fifth tab item content"/>
+                <syncfusion:TabItemExt Header="tabItem6" Content="This is the sixth tab item content"/>
+                <syncfusion:TabItemExt Header="tabItem7" Content="This is the seventh tab item content"/>
+                <syncfusion:TabItemExt Header="tabItem8" Content="This is the eighth tab item content"/>
+                <syncfusion:TabItemExt Header="tabItem9" Content="This is the ninth tab item content" />
+                <syncfusion:TabItemExt Header="tabItem10" Content="This is the tenth tab item content" />
+            </local:ViewModel.TabItems>
+        </local:ViewModel>
+    </Window.Resources>
 
-    <Grid>
+    <!--Setting ViewModel as DataContext for the Grid-->
+    <Grid DataContext="{StaticResource viewModel}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="0.75*"/>
@@ -19,21 +34,12 @@
 
         <Border Grid.Column="0">
             <Grid>
-                <syncfusion:TabControlExt TabItemLayout="{Binding TabItemLayout}" 
+                <syncfusion:TabControlExt ItemsSource="{Binding TabItems}"
+                                          TabItemLayout="{Binding TabItemLayout}" 
                                           AllowDragDrop="{Binding AllowDragDrop}"  
                                           DragMarkerColor="{Binding DragMarkerColor}"
                                           Name="tabControlExt"
                                           Margin="20">
-                    <syncfusion:TabItemExt Header="tabItem1" Content="This is the first tab item content"/>
-                    <syncfusion:TabItemExt Header="tabItem2" Content="This is the second tab item content"/>
-                    <syncfusion:TabItemExt Header="tabItem3" Content="This is the third tab item content"/>
-                    <syncfusion:TabItemExt Header="tabItem4" Content="This is the fourth tab item content"/>
-                    <syncfusion:TabItemExt Header="tabItem5" Content="This is the fifth tab item content"/>
-                    <syncfusion:TabItemExt Header="tabItem6" Content="This is the sixth tab item content"/>
-                    <syncfusion:TabItemExt Header="tabItem7" Content="This is the seventh tab item content"/>
-                    <syncfusion:TabItemExt Header="tabItem8" Content="This is the eighth tab item content"/>
-                    <syncfusion:TabItemExt Header="tabItem9" Content="This is the ninth tab item content" />
-                    <syncfusion:TabItemExt Header="tabItem10" Content="This is the tenth tab item content" />
                 </syncfusion:TabControlExt>
             </Grid>
         </Border>

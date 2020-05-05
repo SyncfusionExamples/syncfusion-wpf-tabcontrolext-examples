@@ -4,9 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace SelectedItem.ViewModel
@@ -17,15 +15,15 @@ namespace SelectedItem.ViewModel
         private Brush tabItemSelectedBackground = Brushes.Green;
         private FontWeight selectedItemFontWeight = FontWeights.Bold;
         private bool isDisableUnloadTabItemExtContent;
-        private ObservableCollection<TabItem> tabItems;
+        private ObservableCollection<TabItem_ViewModel> tabItems;
 
-        public ObservableCollection<TabItem> TabItems
+        public ObservableCollection<TabItem_ViewModel> TabItems
         {
             get { return tabItems; }
             set
             {
                 tabItems = value;
-                this.RaisePropertyChanged("TabItems");
+                this.RaisePropertyChanged(nameof(TabItems));
             }
         }
         public Brush TabItemSelectedForeground
@@ -34,7 +32,7 @@ namespace SelectedItem.ViewModel
             set
             {
                 tabItemSelectedForeground = value;
-                this.RaisePropertyChanged("TabItemSelectedForeground");
+                this.RaisePropertyChanged(nameof(TabItemSelectedForeground));
             }
         }
         public Brush TabItemSelectedBackground
@@ -43,7 +41,7 @@ namespace SelectedItem.ViewModel
             set
             {
                 tabItemSelectedBackground = value;
-                this.RaisePropertyChanged("TabItemSelectedBackground");
+                this.RaisePropertyChanged(nameof(TabItemSelectedBackground));
             }
         }
 
@@ -53,7 +51,7 @@ namespace SelectedItem.ViewModel
             set
             {
                 selectedItemFontWeight = value;
-                this.RaisePropertyChanged("SelectedItemFontWeight");
+                this.RaisePropertyChanged(nameof(SelectedItemFontWeight));
             }
         }
 
@@ -63,48 +61,32 @@ namespace SelectedItem.ViewModel
             set
             {
                 isDisableUnloadTabItemExtContent = value;
-                this.RaisePropertyChanged("IsDisableUnloadTabItemExtContent");
+                this.RaisePropertyChanged(nameof(IsDisableUnloadTabItemExtContent));
             }
         }
 
         public ViewModel()
         {
-            tabItems = new ObservableCollection<TabItem>();
+            tabItems = new ObservableCollection<TabItem_ViewModel>();
             PopulateCollection();
         }
 
         public void PopulateCollection()
         {
-            TabItem tabItem1 = new TabItem()
+            TabItem_ViewModel tabItem1 = new TabItem_ViewModel()
             {
                 Header = "tabItem1",
-                Content = new TextBlock()
-                {
-                    Text = "This is the content of first tabitem.",
-                    HorizontalAlignment = HorizontalAlignment.Center,
-                    VerticalAlignment = VerticalAlignment.Center
-                }
+                Content = "This is the content of first tabitem."
             };
-            TabItem tabItem2 = new TabItem()
+            TabItem_ViewModel tabItem2 = new TabItem_ViewModel()
             {
                 Header = "tabItem2",
-                Content = new TextBlock()
-                {
-                    Text = "This is the content of second tabitem.",
-                    HorizontalAlignment = HorizontalAlignment.Center,
-                    VerticalAlignment = VerticalAlignment.Center,
-
-                }
+                Content = "This is the content of second tabitem."
             };
-            TabItem tabItem3 = new TabItem()
+            TabItem_ViewModel tabItem3 = new TabItem_ViewModel()
             {
                 Header = "tabItem3",
-                Content = new TextBlock()
-                {
-                    Text = "This is the content of third tabitem.",
-                    HorizontalAlignment = HorizontalAlignment.Center,
-                    VerticalAlignment = VerticalAlignment.Center
-                }
+                Content = "This is the content of third tabitem."
             };
 
             //Adding tab item details to the collection
