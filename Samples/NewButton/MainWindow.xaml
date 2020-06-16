@@ -30,8 +30,8 @@
                                            Name="tabControlExt">
                     
                     <!--Custom UI for the NewButton -->
-                    <syncfusion:TabControlExt.NewButtonTemplate>
-                        <ControlTemplate>
+                    <syncfusion:TabControlExt.NewTabButtonTemplate>
+                        <DataTemplate>
                             <Button Background="{Binding NewButtonBackground}" 
                                     Content=" + ">
                                 <i:Interaction.Triggers>
@@ -41,8 +41,8 @@
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </Button>
-                        </ControlTemplate>
-                    </syncfusion:TabControlExt.NewButtonTemplate>
+                        </DataTemplate>
+                    </syncfusion:TabControlExt.NewTabButtonTemplate>
 
                     <!--Binding the header text for the Tab item-->
                     <syncfusion:TabControlExt.ItemContainerStyle>
