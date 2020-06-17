@@ -7,6 +7,7 @@ This repository contains the samples that demonstrate the functionalities of Tab
   <td><a href="Samples/Getting-Started">Getting Started</a></td>  
   <td><a href="Samples/Databinding">Databinding Support</a></td>
   <td><a href="Samples/Tab-Header">TabHeader Customization</a></td> 
+  <td><a href="Samples/TabControlLayout">Multiline tabs</a></td>  
   <td><a href="Samples/Tab-Closing">TabClosing Support</a></td>
  </tr>
  <tr>
@@ -14,6 +15,7 @@ This repository contains the samples that demonstrate the functionalities of Tab
   <td><a href="Samples/SelectedItem">Selecting Support</a></td>
    <td><a href="Samples/ArranageTabs">Arrange tabs</a></td>
    <td><a href="Samples/Pin-UnPin">Pin-UnPin Support</a></td>
+   <td><a href="Samples/TabListContextMenuOptions">TabListContextMenu Options</a></td>  
    <td><a href="Samples/NewButton">NewButton Support</a></td>
  </tr>
  <tr>  
