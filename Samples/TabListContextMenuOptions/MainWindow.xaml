@@ -1,0 +1,76 @@
+﻿<Window x:Class="TabListContextMenuOptions.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TabListContextMenuOptions" 
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="TabControl - TabListContextMenu Options" Height="450" Width="1000">
+
+    <Window.Resources>
+        <local:ViewModel x:Key="viewModel">
+            <local:ViewModel.TabItems>
+                <syncfusion:TabItemExt Header="tabItem1" Content="This is the first tab item content" IsEnabled="False"/>
+                <syncfusion:TabItemExt Header="tabItem2" Content="This is the second tab item content" Visibility="Collapsed"/>
+                <syncfusion:TabItemExt Header="tabItem3" Content="This is the third tab item content" />
+                <syncfusion:TabItemExt Header="tabItem4" Content="This is the fourth tab item content" IsEnabled="False"/>
+                <syncfusion:TabItemExt Header="tabItem5" Content="This is the fifth tab item content" Visibility="Collapsed"/>
+                <syncfusion:TabItemExt Header="tabItem6" Content="This is the sixth tab item content"/>
+                <syncfusion:TabItemExt Header="tabItem7" Content="This is the seventh tab item content" IsEnabled="False"/>
+                <syncfusion:TabItemExt Header="tabItem8" Content="This is the eighth tab item content" Visibility="Collapsed"/>
+                <syncfusion:TabItemExt Header="tabItem9" Content="This is the ninth tab item content" />
+                <syncfusion:TabItemExt Header="tabItem10" Content="This is the tenth tab item content" IsEnabled="True" />
+            </local:ViewModel.TabItems>
+        </local:ViewModel>
+    </Window.Resources>
+
+    <!--Setting ViewModel as DataContext for the Grid-->
+    <Grid DataContext="{StaticResource viewModel}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.75*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0">
+            <Grid>
+                <syncfusion:TabControlExt ItemsSource="{Binding TabItems}"
+                                          TabListContextMenuOptions="{Binding TabListContextMenuOptions}"
+                                          Name="tabControlExt"
+                                          Margin="20">
+                </syncfusion:TabControlExt>
+            </Grid>
+        </Border>
+
+        <GroupBox Margin="0,0,3,3" 
+                  Grid.Column="1" 
+                  Header="User Options"
+                  HorizontalAlignment="Center" 
+                  VerticalAlignment="Center">
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Margin="3"
+                           Text ="TabListContextMenu Options" 
+                           Grid.Row="0"
+                           Grid.Column="0"/>
+                <ComboBox SelectedItem="{Binding TabListContextMenuOptions, Mode=TwoWay}" 
+                          Grid.Row="0" 
+                          Grid.Column="1" 
+                          Margin="3">
+                    <syncfusion:TabListContextMenuOptions>None</syncfusion:TabListContextMenuOptions>
+                    <syncfusion:TabListContextMenuOptions>Default</syncfusion:TabListContextMenuOptions>
+                    <syncfusion:TabListContextMenuOptions>ShowHiddenItems</syncfusion:TabListContextMenuOptions>
+                    <syncfusion:TabListContextMenuOptions>ShowDisabledItems</syncfusion:TabListContextMenuOptions>
+                    <syncfusion:TabListContextMenuOptions>ShowEnabledItems</syncfusion:TabListContextMenuOptions>
+                    <syncfusion:TabListContextMenuOptions>ShowEnabledItems,ShowHiddenItems</syncfusion:TabListContextMenuOptions>
+                    <syncfusion:TabListContextMenuOptions>ShowHiddenItems,ShowDisabledItems</syncfusion:TabListContextMenuOptions>
+                    <syncfusion:TabListContextMenuOptions>ShowEnabledItems,ShowHiddenItems,ShowDisabledItems</syncfusion:TabListContextMenuOptions>
+                </ComboBox>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>            

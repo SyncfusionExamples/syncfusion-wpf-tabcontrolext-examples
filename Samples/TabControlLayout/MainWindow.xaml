@@ -1,0 +1,139 @@
+﻿<Window x:Class="TabControlLayout.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TabControlLayout"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="TabControl - TabItem Layout" Height="700" Width="995">
+    <Window.Resources>
+        <Style TargetType="syncfusion:TabItemExt" 
+               x:Key="TabItemTemplate"  >
+            <Setter Property="HeaderTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Header, Mode=TwoWay}" />
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <DataTemplate x:Key="EditHeaderTemplate">
+            <TextBox Text="{Binding Header, Mode=TwoWay}"/>
+        </DataTemplate>
+        <DataTemplate x:Key="TabContentTemplate">
+            <TextBlock Height="20"
+                       TextAlignment="Center" T
+                       ext="{Binding Content}" />
+        </DataTemplate>
+    </Window.Resources>
+    <Window.DataContext>
+        <local:ViewModel/>
+    </Window.DataContext>
+
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0" 
+                    Grid.Column="0" 
+                    Margin="10">
+            <Label 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Center" 
+                Content="SingleLine"
+                FontWeight="SemiBold"
+                Height="30"
+                Width="100"/>
+            <syncfusion:TabControlExt IsNewButtonEnabled="True"
+                                      ItemsSource="{Binding TabItems}"
+                                      TabItemLayout="SingleLine" 
+                                      EditHeaderTemplate="{StaticResource EditHeaderTemplate}" 
+                                      ContentTemplate="{StaticResource TabContentTemplate}"
+                                      ItemContainerStyle="{StaticResource TabItemTemplate}"
+                                      Name="tabControlExt">
+            </syncfusion:TabControlExt>
+        </StackPanel>
+        <StackPanel Grid.Row="0"
+                    Grid.Column="1" 
+                    Margin="10" >
+            <Label 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Center" 
+                    Content="SingleLineStar"
+                    FontWeight="SemiBold" 
+                    Height="30"
+                    Width="100" />
+            <syncfusion:TabControlExt 
+                    ItemsSource="{Binding Multiline_Tabitems}" 
+                    TabItemLayout="SingleLineStar" 
+                    EditHeaderTemplate="{StaticResource EditHeaderTemplate}" 
+                    ContentTemplate="{StaticResource TabContentTemplate}"
+                    ItemContainerStyle="{StaticResource TabItemTemplate}"
+                    Name="tabControlExt1" >
+            </syncfusion:TabControlExt>
+        </StackPanel>
+        <StackPanel Grid.Row="1"
+                    Grid.Column="0" 
+                    Margin="10">
+            <Label
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Center" 
+                    Content="MultiLine" 
+                    FontWeight="SemiBold" 
+                    Height="30"
+                    Width="100"/>
+
+            <syncfusion:TabControlExt
+                    ItemsSource="{Binding TabItems}"
+                    TabItemLayout="MultiLine" 
+                    EditHeaderTemplate="{StaticResource EditHeaderTemplate}"
+                    ContentTemplate="{StaticResource TabContentTemplate}" 
+                    ItemContainerStyle="{StaticResource TabItemTemplate}"
+                    Name="tabControlExt2">
+            </syncfusion:TabControlExt>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1" Margin="10">
+            <Label
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Center" 
+                    Content="MultiLineStar" 
+                    FontWeight="SemiBold" 
+                    Height="30"
+                    Width="100"/>
+            <syncfusion:TabControlExt
+                    ItemsSource="{Binding TabItems}" 
+                    TabItemLayout="MultiLineStar" 
+                    EditHeaderTemplate="{StaticResource EditHeaderTemplate}"
+                    ContentTemplate="{StaticResource TabContentTemplate}"
+                    ItemContainerStyle="{StaticResource TabItemTemplate}"
+                    Name="tabControlExt3">
+            </syncfusion:TabControlExt>
+        </StackPanel>
+        <StackPanel Grid.Row="2" 
+                    Grid.Column="0"
+                    Margin="10">
+            <Label 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Center"
+                    Content="MultiLineWithFullWidth"
+                    FontWeight="SemiBold"
+                    Height="30"
+                    Width="auto"/>
+            <syncfusion:TabControlExt
+                    ItemsSource="{Binding TabItems}"
+                    TabItemLayout="MultiLineWithFullWidth" 
+                    EditHeaderTemplate="{StaticResource EditHeaderTemplate}"
+                    ContentTemplate="{StaticResource TabContentTemplate}"
+                    ItemContainerStyle="{StaticResource TabItemTemplate}"
+                    Name="tabControlExt4">
+            </syncfusion:TabControlExt>
+        </StackPanel>
+    </Grid>
+</Window>
