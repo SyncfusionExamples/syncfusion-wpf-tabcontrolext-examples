@@ -18,10 +18,14 @@ This repository contains the samples that demonstrate the functionalities of Tab
    <td><a href="Samples/TabListContextMenuOptions">TabListContextMenu Options</a></td>  
    <td><a href="Samples/NewButton">NewButton Support</a></td>
  </tr>
- <tr>  
+ <tr> 
   <td><a href="Samples/ContextMenu">ContextMenu Support</a></td>
+  <td><a href="Samples/TabOrderChangeNotification">TabOrder Changed Notification</a></td>
+  <td><a href="Samples/TabOrderChangeNotification">Restrict tab order changing</a></td>
   <td><a href="Samples/Tabs Placement">Tabs Placement Support</a></td> 
-  <td><a href="Samples/Templates">Template Supports</a></td>
-  <td><a href="Samples/Themes">Themes</a></td>
+  <td><a href="Samples/Templates">Template Supports</a></td> 
  </tr>
-</table>
+ <tr> 
+	<td><a href="Samples/Themes">Themes</a></td>
+ </tr>
+ </table>
