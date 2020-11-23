@@ -14,14 +14,19 @@ namespace NewButton
         private Brush newButtonBackground = Brushes.Red;
         private bool isNewButtonClosedonNoChild=true;
         private bool isNewButtonEnabled = true;
+        private bool selectOnCreatingNewItem = true;
         private ObservableCollection<TabItem_ViewModel> tabItems;
-        private DelegateCommand<object> newButtonClickCommand;
+        private ICommand newButtonClickCommand;
 
         public ICommand NewButtonClickCommand
         {
             get
             {
                 return newButtonClickCommand;
+            }
+            set
+            {
+                newButtonClickCommand = value;
             }
         }
         public Brush NewButtonBackground
@@ -50,6 +55,16 @@ namespace NewButton
             {
                 isNewButtonEnabled = value;
                 this.RaisePropertyChanged(nameof(IsNewButtonEnabled));
+            }
+        } 
+        
+        public bool SelectOnCreatingNewItem
+        {
+            get { return selectOnCreatingNewItem; }
+            set
+            {
+                selectOnCreatingNewItem = value;
+                this.RaisePropertyChanged(nameof(SelectOnCreatingNewItem));
             }
         }
         public bool IsNewButtonClosedonNoChild
@@ -104,7 +119,7 @@ namespace NewButton
         {
             tabItems = new ObservableCollection<TabItem_ViewModel>();
             PopulateCollection();
-            newButtonClickCommand = new DelegateCommand<object>(NewButtonClicked);
+            NewButtonClickCommand = new DelegateCommand<object>(NewButtonClicked);
         }
     }
 }

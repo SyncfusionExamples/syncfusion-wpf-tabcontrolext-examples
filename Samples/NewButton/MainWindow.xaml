@@ -26,6 +26,7 @@
                                            IsNewButtonClosedonNoChild="{Binding IsNewButtonClosedonNoChild}"
                                            IsNewButtonEnabled="{Binding IsNewButtonEnabled}"
                                            NewButtonAlignment="{Binding NewButtonAlignment}"
+                                           SelectOnCreatingNewItem="{Binding SelectOnCreatingNewItem}"
                                            Margin="20"
                                            Name="tabControlExt">
                     
@@ -87,6 +88,7 @@
                     <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>
@@ -130,6 +132,15 @@
                            Grid.Column="0"/>
                 <syncfusion:ColorPicker Brush="{Binding NewButtonBackground, Mode=TwoWay}" 
                           Grid.Row="3" 
+                          Grid.Column="1" 
+                          Margin="3"/>
+
+                <TextBlock Margin="3"
+                           Text ="SelectOnCreatingNewItem" 
+                           Grid.Row="4"
+                           Grid.Column="0"/>
+                <CheckBox IsChecked="{Binding SelectOnCreatingNewItem, Mode=TwoWay}" 
+                          Grid.Row="4" 
                           Grid.Column="1" 
                           Margin="3"/>
             </Grid>
