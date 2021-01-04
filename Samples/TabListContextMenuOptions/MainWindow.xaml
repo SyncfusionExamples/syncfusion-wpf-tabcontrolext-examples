@@ -38,6 +38,33 @@
                                           TabListContextMenuOptions="{Binding TabListContextMenuOptions}"
                                           Name="tabControlExt"
                                           Margin="20">
+                    <!--Adding custom tab list context menu items-->
+                    <syncfusion:TabControlExt.TabListContextMenuItems>
+
+                        <!--Adding custom context menu items-->
+                        <syncfusion:CustomMenuItem Header="Menu 1">
+
+                            <!--Adding sub custom context menu items-->
+                            <syncfusion:CustomMenuItem Header="SubMenu 1"/>
+                            <syncfusion:CustomMenuItem Header="SubMenu 2" >
+
+                                <!--Adding sub custom context menu items-->
+                                <syncfusion:CustomMenuItem Header="Level 2"/>
+                            </syncfusion:CustomMenuItem>
+                            <syncfusion:CustomMenuItem Header="SubMenu 3"/>
+                        </syncfusion:CustomMenuItem>
+                        <syncfusion:CustomMenuItem Header="Menu 2">
+
+                            <!--Adding sub custom context menu items-->
+                            <syncfusion:CustomMenuItem Header="SubMenu 1"/>
+                            <syncfusion:CustomMenuItem Header="SubMenu 2"/>
+                            <syncfusion:CustomMenuItem Header="SubMenu 3">
+
+                                <!--Adding sub custom context menu items-->
+                                <syncfusion:CustomMenuItem Header="Level 2"/>
+                            </syncfusion:CustomMenuItem>
+                        </syncfusion:CustomMenuItem>
+                    </syncfusion:TabControlExt.TabListContextMenuItems>
                 </syncfusion:TabControlExt>
             </Grid>
         </Border>

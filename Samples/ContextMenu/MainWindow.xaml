@@ -34,7 +34,14 @@
                         
                         <!--Adding custom context menu items-->
                         <syncfusion:TabItemExt.ContextMenuItems>
-                            <syncfusion:CustomMenuItem Header="Edit" />
+                            <syncfusion:CustomMenuItem Header="Edit">
+                                <!--Adding sub custom context menu items-->
+                                <syncfusion:CustomMenuItem Header="SubItem0"/>
+                                <syncfusion:CustomMenuItem Header="SubItem1"/>
+                                <syncfusion:CustomMenuItem Header="SubItem2">
+                                    <syncfusion:CustomMenuItem Header="Level 2"/>
+                                </syncfusion:CustomMenuItem>
+                            </syncfusion:CustomMenuItem>
                             <syncfusion:CustomMenuItem Header="Copy" />
                             <syncfusion:CustomMenuItem Header="Paste" />
                         </syncfusion:TabItemExt.ContextMenuItems>
@@ -48,7 +55,14 @@
 
                         <!--Adding custom context menu items-->
                         <syncfusion:TabItemExt.ContextMenuItems>
-                            <syncfusion:CustomMenuItem Header="Edit" />
+                            <syncfusion:CustomMenuItem Header="Edit">
+                                <!--Adding sub custom context menu items-->
+                                <syncfusion:CustomMenuItem Header="SubItem0"/>
+                                <syncfusion:CustomMenuItem Header="SubItem1"/>
+                                <syncfusion:CustomMenuItem Header="SubItem2">
+                                    <syncfusion:CustomMenuItem Header="Level 2"/>
+                                </syncfusion:CustomMenuItem>
+                            </syncfusion:CustomMenuItem>
                             <syncfusion:CustomMenuItem Header="Copy" />
                             <syncfusion:CustomMenuItem Header="Paste" />
                         </syncfusion:TabItemExt.ContextMenuItems>

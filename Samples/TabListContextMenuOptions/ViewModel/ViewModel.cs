@@ -7,7 +7,7 @@ namespace TabListContextMenuOptions
     public class ViewModel : NotificationObject
     {
 
-        private TabListContextMenuOptions tabListContextMenuOptions = TabListContextMenuOptions.ShowHiddenItems;
+        private Syncfusion.Windows.Tools.Controls.TabListContextMenuOptions tabListContextMenuOptions = Syncfusion.Windows.Tools.Controls.TabListContextMenuOptions.ShowHiddenItems;
         private ObservableCollection<object> tabItems;
 
         public ObservableCollection<object> TabItems
@@ -23,7 +23,7 @@ namespace TabListContextMenuOptions
             }
         }
 
-        public TabListContextMenuOptions TabListContextMenuOptions
+        public Syncfusion.Windows.Tools.Controls.TabListContextMenuOptions TabListContextMenuOptions
         {
             get { return tabListContextMenuOptions; }
             set
